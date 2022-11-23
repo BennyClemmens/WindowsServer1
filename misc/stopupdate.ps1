@@ -1,0 +1,1 @@
+get-service|where {$_.Name -eq 'wuauserv'}|Stop-Service
