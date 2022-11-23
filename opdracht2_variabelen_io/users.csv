@@ -1,0 +1,7 @@
+#TYPE Microsoft.PowerShell.Commands.LocalUser
+"AccountExpires","Description","Enabled","FullName","PasswordChangeableDate","PasswordExpires","UserMayChangePassword","PasswordRequired","PasswordLastSet","LastLogon","Name","SID","PrincipalSource","ObjectClass"
+,"Built-in account for administering the computer/domain","False","",,,"True","True",,"11/19/2020 8:35:07 AM","Administrator","S-1-5-21-874554931-608954493-821477770-500","Local","User"
+,"A user account managed by the system.","False","",,,"True","False",,,"DefaultAccount","S-1-5-21-874554931-608954493-821477770-503","Local","User"
+,"Built-in account for guest access to the computer/domain","False","",,,"False","False",,,"Guest","S-1-5-21-874554931-608954493-821477770-501","Local","User"
+,"","True","","11/22/2022 2:01:47 PM",,"True","False","11/22/2022 2:01:47 PM","11/22/2022 2:13:04 PM","Student","S-1-5-21-874554931-608954493-821477770-1001","Local","User"
+,"A user account managed and used by the system for Windows Defender Application Guard scenarios.","False","","11/19/2020 8:31:42 AM","12/31/2020 8:31:42 AM","True","True","11/19/2020 8:31:42 AM",,"WDAGUtilityAccount","S-1-5-21-874554931-608954493-821477770-504","Local","User"
