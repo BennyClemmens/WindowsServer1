@@ -16,7 +16,6 @@ Write-Host 'dit werd in de variabele $zin opgeslaan'
 write-host "`nTellen methode 1 (zin splitsen met .split() en lengte array tellen):"
 write-host '$zinArr = $zin.split() (default : ' ' => probleem met meerdere spaties)'
 $zinArr = $zin.Split()
-Write-Host "$zinArr"
 write-host '$aantal = $zinArr.Length'
 $aantal = $zinArr.Length
 write-host "$aantal"
