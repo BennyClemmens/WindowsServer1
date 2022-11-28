@@ -14,7 +14,7 @@ Clear-Host
 $zin = Read-Host "Geef een zin"
 
 Write-Host "`nvolgende zin hebt u ingegeven:`n$zin"
-Write-Host 'dit werd in de varaibele $zin opgeslaan'
+Write-Host 'dit werd in de variabele $zin opgeslaan'
 
 write-host "`nmethode 1:"
 write-host '$zinArr = $zin.ToCharArray()'
