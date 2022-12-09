@@ -24,7 +24,14 @@ $woord = "server adressen"
 }
 
 $adres = $dnsserver.serveraddresses
-write-host "dit ${werkwoord} dns ${woord}:
-$adres"
+write-host "dit ${werkwoord} dns ${woord}: $adres"
 
+if ($adres -contains "212.166.2.10")
+{
+echo "victory"
+}
+else
+{
+echo "no victory"
+} 
 exit 0
