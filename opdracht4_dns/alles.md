@@ -106,7 +106,33 @@ else
 exit 0
 ```
 
-4. Schrijf een script dat eerst toont hoeveel entries er in de DNS client cache zitten. Daarna zal het script de DNS client cache leegmaken, en vervolgens opnieuw uitschrijven hoeveel entries er in de cache zitten.
+4. Schrijf een script dat eerst toont hoeveel entries er in de DNS client cache zitten. Daarna zal het script de DNS client cache leegmaken, en vervolgens opnieuw uitschrijven hoeveel entries er in de cache zitten.  
+***`opdracht4_A_4a`***
+```
+<#
+    Schrijf een script dat eerst toont hoeveel entries er in de DNS client cache zitten.
+    Daarna zal het script de DNS client cache leegmaken,
+    en vervolgens opnieuw uitschrijven hoeveel entries er in de cache zitten.
+#>
+
+$cache = Get-DnsClientCache
+[int]$aantal = $cache.Count
+
+write-host "er zitten ${aantal} records in de cache"
+if (${aantal} -ne "0")
+{
+    write-host "clearing cache"
+    Clear-DnsClientCache
+    
+    $cache = Get-DnsClientCache
+    $aantal = $cache.Count
+    write-host "er zitten ${aantal} records in de cache"
+}
+else
+{
+    Write-Host "en dus geen clear nodig"
+}
+```
 
 5. Schrijf een script dat aan de gebruiker vraagt om een adres op te geven (bv. [www.hogent.be](www.hogent.be)). Daarna schrijft het script het overeenkomstige IPv4 adres uit op het scherm, samen met de TTL.
 

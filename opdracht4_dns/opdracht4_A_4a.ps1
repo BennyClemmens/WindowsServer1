@@ -5,10 +5,19 @@
 #>
 
 $cache = Get-DnsClientCache
-$aantal = $cache.Count
+[int]$aantal = $cache.Count
+
 write-host "er zitten ${aantal} records in de cache"
-write-host "clearing cache"
-Clear-DnsClientCache
-$cache = Get-DnsClientCache
-$aantal = $cache.Count
-write-host "er zitten ${aantal} records in de cache"
+if (${aantal} -ne "0")
+{
+    write-host "clearing cache"
+    Clear-DnsClientCache
+    
+    $cache = Get-DnsClientCache
+    $aantal = $cache.Count
+    write-host "er zitten ${aantal} records in de cache"
+}
+else
+{
+    Write-Host "en dus geen clear nodig"
+}
