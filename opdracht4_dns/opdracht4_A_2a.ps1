@@ -1,37 +1,22 @@
 ﻿<#
-    1. Schrijf een script dat de huidige ingestelde DNS-servers uitschrijft naar het scherm.
-    Toon hierbij enkel de DNS servers voor de LAN interface, en enkel voor IPv4.
+    2. Schrijf een script dat de gebruiker vraagt om een bepaalde naam in te geven
+    (bv. www.google.com).
+    Nadien controleert het script of deze naam voorkomt in de DNS client cache.
+    Indien dit het geval is, schrijft het script het data veld uit van deze entry,
+    indien niet schrijf je een gepaste boodschap uit.
 #>
 
-#declaraties
+[string] $naam = Read-Host "Geef adres"
+$entry = Get-DnsClientCache -Entry $naam -ErrorAction SilentlyContinue
 
-$netwerk = "LAN"
-$werkwoord = "is het"
-$woord = "server adres"
-
-#de array:
-$dnsserver = Get-DnsClientServerAddress -AddressFamily IPv4 -InterfaceAlias "${netwerk}" -ErrorAction SilentlyContinue
-if (! $dnsserver)
+if($entry)
 {
-    Write-Error "het script veronderstelt een netwerk met de naam ${netwerk}, zoals in de opgave ..."
-    exit 1
-}
-
-if ($dnsserver.ServerAddresses.count -gt 1)
-{
-$werkwoord = "zijn de"
-$woord = "server adressen"
-}
-
-$adres = $dnsserver.serveraddresses
-write-host "dit ${werkwoord} dns ${woord}: $adres"
-
-if ($adres -contains "212.166.2.10")
-{
-echo "victory"
+    $data = $entry.data
+    Write-Host "$naam gevonden in DNS cache, waarde is:
+$data"
+    # ${data} indien o
 }
 else
 {
-echo "no victory"
-} 
-exit 0
+    Write-Host "$naam niet gevonden in de DNS cache"
+}
