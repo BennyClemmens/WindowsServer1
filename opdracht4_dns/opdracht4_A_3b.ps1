@@ -11,7 +11,7 @@
 #declaraties
 
 $netwerk = "LAN"
-$ip = "192.168.0.1"
+$ip = "192.168.0.2"
 
 $dnsserver = Get-DnsClientServerAddress -AddressFamily IPv4 -InterfaceAlias "${netwerk}" -ErrorAction SilentlyContinue
 if (! $dnsserver)
