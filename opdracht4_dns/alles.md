@@ -199,7 +199,24 @@ else
 Write-Host "De forwarder(s): $($(Get-DnsServerForwarder).IPAddress)"
 ```
 
-2. Vraag een lijst op van alle DNS zones die de server beheert. Geef voor elke zone het type van de zone (Primary, ...) en vermeld ook of het om een Forward of Reverse Lookup zone gaat.
+2. Vraag een lijst op van alle DNS zones die de server beheert. Geef voor elke zone het type van de zone (Primary, ...) en vermeld ook of het om een Forward of Reverse Lookup zone gaat.  
+***`opdracht4_B_2a.ps1`***  
+```
+<#
+    2. Vraag een lijst op van alle DNS zones die de server beheert.
+    Geef voor elke zone het type van de zone (Primary, ...)
+    en vermeld ook of het om een Forward of Reverse Lookup zone gaat.
+#>
+
+$zones = Get-DnsServerZone
+
+foreach($zone in $zones)
+{
+    Write-Host "$($zone.ZoneName)
+    $($zone.ZoneType) Zone
+    $(if ($zone.IsReverseLookupZone) {"Reverse"} else {"Forward"}) Lookup"
+}
+```
 
 3. Gebruik PowerShell om een primaire forward lookup zone example.temp aan te maken binnen DNS. Schrijf nadien (via PowerShell) alle records uit van deze nieuwe zone. Welke records zijn er automatisch aangemaakt?
 
