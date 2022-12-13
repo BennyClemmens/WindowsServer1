@@ -318,6 +318,29 @@ exit 0
 
 6. Gebruik PowerShell om het A-record op te halen voor laptop25. Haal nadien het PTR record op voor het IP-adres dat je verkreeg via het A-record.
 
-    ``Tip: gebruik de methode ``**``GetAddressBytes()``**`` om een IP-adres op te delen``
+    ``Tip: gebruik de methode ``**``GetAddressBytes()``**`` om een IP-adres op te delen``  
+***`opdracht4_B_6a.ps1`***  
+```
+<#
+    6. Gebruik PowerShell om het A-record op te halen voor laptop25.
+    Haal nadien het PTR record op voor het IP-adres dat je verkreeg via het A-record.
+
+    Tip: gebruik de methode GetAddressBytes() om een IP-adres op te delen
+#>
+
+$zonenaam = "example.temp"
+$reversezonenaam = "10.168.192.in-addr.arpa"
+$lt="laptop25"
+
+write-host "forward lookup ${lt} in ${zonenaam}:"
+$fwrecord = $(Get-DnsServerResourceRecord -ZoneName ${zonenaam} –Name ${lt})
+write-host "$(${fwrecord}.RecordData.IPv4Address)"
+
+$hostnummer = $fwrecord.recorddata.ipv4address.getaddressbytes()[3]
+write-host "reverse lookup host ${hostnummer} in ${reversezonenaam}:"
+$revrecord = $(Get-DnsServerResourceRecord -ZoneName ${reversezonenaam} –Name ${hostnummer})
+write-host "$(${revrecord}.RecordData.PtrDomainname)"
+```
+
 
 7. Verwijder via PowerShell de zone example.temp en de reverse lookup zone voor netwerk 192.168.10.0/24. Maak hierbij gebruik van de parameter `-Force` zodat de gebruiker geen bevestiging moet geven bij uitvoeren van het script.

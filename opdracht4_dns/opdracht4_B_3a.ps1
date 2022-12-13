@@ -12,7 +12,7 @@ if ($(Get-DnsServerZone| where {$_.ZoneName -eq ${zonenaam}}))
 }
 else
 {
-    Add-DnsServerPrimaryZone -Name $zonenaam -ZoneFile $zonenaam
+    Add-DnsServerPrimaryZone -Name $zonenaam -ZoneFile "${zonenaam}" #-ReplicationScope Domain
 }
 
 Get-DnsServerResourceRecord -ZoneName $zonenaam
