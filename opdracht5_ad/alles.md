@@ -4,9 +4,26 @@ In deze vijfde reeks zullen we enkele scripts schrijven om Active Directory te b
 
 1. Schrijf een script dat aan de gebruiker vraagt om de naam van OU in te geven (bijvoorbeeld: PersoneelGent). Nadien schrijft het script voor elke OU met deze naam het volledige pad uit in X500 (LDAP) formaat.  
 
-***`naap.ps1`***
+***`opdracht5_1a.ps1`***
 ```
-code
+<#
+    1. Schrijf een script dat aan de gebruiker vraagt om de naam van OU in te geven (bijvoorbeeld: PersoneelGent).
+    Nadien schrijft het script voor elke OU met deze naam het volledige pad uit in X500 (LDAP) formaat.  
+#>
+
+$filter = read-host "geef de naam (filter) van een OU"
+
+$ou = Get-ADOrganizationalUnit -Filter {Name -like ${filter}}
+
+if (${ou})
+    {
+    write-host "voor ${filter} zijn volgende OU's gevonden:"
+        write ${ou}.distinguishedname
+    }
+else
+    {
+        write "geen Ou's gevonden met de filter ${filter}"
+    }
 ```
 
 2. Schrijf een script dat aan de gebruiker vraagt om een getal in te geven (bijvoorbeeld: 10). Nadien maakt het script een aantal OUs aan onder de root van het domein, met als naam test1, test2, … tot en met test10 (als de gebruiker als getal 10 ingaf). Zorg dat bij aanmaken van de OUs de bescherming tegen verwijderen uit staat.  
