@@ -49,9 +49,26 @@ for($i =1 ; ${i} -le ${aantal}; ${i}++)
 
 3. Idem als de vorige vraag, maar de OUs worden genest aangemaakt: test1 wordt aangemaakt onder de root van het domein, test2 wordt aangemaakt als kind OU van test1, test3 is een kind OU van test2 enzovoort.
 
-***`naap.ps1`***  
+***`opdracht5_3a.ps1`***  
 ```
-code
+<#
+    3. Idem als de vorige vraag, maar de OUs worden genest aangemaakt:
+    test1 wordt aangemaakt onder de root van het domein,
+        test2 wordt aangemaakt als kind OU van test1,
+            test3 is een kind OU van test2 enzovoort.  
+#>
+
+[int]$aantal = read-host "geef het aantal aant maken OU's"
+
+$locatie = "DC=HOGENT,DC=LOCAL"
+
+for($i =1 ; ${i} -le ${aantal}; ${i}++)
+    {
+    #Write-Host $i
+    New-ADOrganizationalUnit -name "test${i}" -ProtectedFromAccidentalDeletion $false -Path ${locatie}
+    $locatie = "OU=test${i},${locatie}"
+}
+# possible tweaks : check if OU with this name allready exits ...
 ```
 
 4. Schrijf een script dat aan de gebruiker vraagt om een gebruikersnaam in te geven (bijvoorbeeld: mad_sme). Nadien schrijft het script het volledige pad uit van deze gebruiker in X500 (LDAP) formaat.
