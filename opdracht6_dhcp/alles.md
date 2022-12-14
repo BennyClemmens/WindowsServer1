@@ -1,6 +1,17 @@
 # Beheer DHCP
 
-1. Schrijf een script dat van alle DHCP scopes de ScopeID uitschrijft op het scherm.
+1. Schrijf een script dat van alle DHCP scopes de ScopeID uitschrijft op het scherm.  
+***`opdracht6_1a.ps1`***
+```
+<#
+    1. Schrijf een script dat van alle DHCP scopes de ScopeID uitschrijft op het scherm. 
+#>
+
+foreach($scope in $(Get-DhcpServerv4Scope))
+    {
+    Write-Host "$(${scope}.name) : $(${scope}.ScopeId)"
+    }
+```
 
 2. Schrijf een script dat voor alle DHCP scopes de Exclusion Ranges uitschrijft op het scherm. Geef hierbij voor elke exclusion range het start- en eindadres.
 
