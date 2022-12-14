@@ -14,7 +14,7 @@ foreach($scope in $(Get-DhcpServerv4Scope))
 ```
 
 2. Schrijf een script dat voor alle DHCP scopes de Exclusion Ranges uitschrijft op het scherm. Geef hierbij voor elke exclusion range het start- en eindadres.  
-***`opdracht6_1a.ps1`***
+***`opdracht6_2b.ps1`***
 ```
 <#
     2. Schrijf een script dat voor alle DHCP scopes de Exclusion Ranges uitschrijft op het scherm. Geef hierbij voor elke exclusion range het start- en eindadres. 
@@ -33,7 +33,27 @@ foreach ($scope in $scopes)
     }
 ```
 
-3. Schrijf een script dat voor alle DHCP scopes alle DHCP scope opties uitschrijft op het scherm. Geef hierbij voor elke optie het nummer en de waarde.
+3. Schrijf een script dat voor alle DHCP scopes alle DHCP scope opties uitschrijft op het scherm. Geef hierbij voor elke optie het nummer en de waarde.  
+***`opdracht6_3a.ps1`***
+```
+<#
+    3. Schrijf een script dat voor alle DHCP scopes alle DHCP scope opties uitschrijft op het scherm.
+    Geef hierbij voor elke optie het nummer en de waarde. 
+#>
+
+$scopes = Get-DhcpServerv4Scope
+
+foreach($scope in $scopes)
+    {
+    Write-Host "Scope $($scope.ScopeId)"
+    $options = Get-DhcpServerv4OptionValue -ScopeId $scope.ScopeId
+    #$options
+    foreach($option in $options)
+        {
+        Write-Host "`t Scope option $($option.OptionId) ($($option.Name)): $($option.Value)"
+        }
+    }
+```
 
 4. Schrijf een script dat voor elke DHCP scope een overzicht op het scherm geeft van de huidige leases. Geef hierbij voor elke lease het MAC-adres van de client en het toegekende IP-adres.
 
