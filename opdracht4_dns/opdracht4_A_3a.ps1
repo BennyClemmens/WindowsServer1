@@ -28,7 +28,7 @@ if ($adres -eq ${ip}) # evalueert ook naar false als er meerdere zijn ingesteld
 }
 else
 {
-    Set-DnsClientServerAddress -ServerAddresses "${ip}" -InterfaceAlias "${netwerk}"
+    #Set-DnsClientServerAddress -ServerAddresses "${ip}" -InterfaceAlias "${netwerk}"
     Write-Host "DNS werd ingesteld op ${ip}"
 
 }

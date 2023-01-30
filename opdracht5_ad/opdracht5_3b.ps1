@@ -7,7 +7,7 @@
 
 [int]$aantal = read-host "geef het aantal aant maken OU's"
 
-$locatie = "DC=FLORIST,DC=THUIS"
+$locatie = "DC=FLORIST,DC=local"
 
 for($i =1 ; ${i} -le ${aantal}; ${i}++)
     {

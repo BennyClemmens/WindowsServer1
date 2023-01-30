@@ -43,8 +43,8 @@ if(Test-Path "$c$hoofdmap")
 else
     {
     Write-Host "de map $c$hoofdmap bestaat nog niet, wordt aangemaakt"
-    New-Item -Path "$c$hoofdmap" -ItemType Directory | Tee-Object -FilePath "$c$l$lf" -Append
-    # New-Item -Path "$c$hoofdmap" -ItemType Directory | Out-File -Append "$c$l$lf"
+    # New-Item -Path "$c$hoofdmap" -ItemType Directory | Tee-Object -FilePath "$c$l$lf" -Append
+    New-Item -Path "$c$hoofdmap" -ItemType Directory | Out-File -Append "$c$l$lf"
     }
 
 for($i=1; $i -le $aantal; $i++)
@@ -56,6 +56,7 @@ for($i=1; $i -le $aantal; $i++)
     else
         {
         Write-Host "$c$hoofdmap\$pre$hoofdmap$i wordt aangemaakt"
-        New-Item -Path "$c$hoofdmap\$pre$hoofdmap$i" -ItemType Directory | Tee-Object -FilePath "$c$l$lf" -Append
+        #New-Item -Path "$c$hoofdmap\$pre$hoofdmap$i" -ItemType Directory | Tee-Object -FilePath "$c$l$lf" -Append
+        New-Item -Path "$c$hoofdmap\$pre$hoofdmap$i" -ItemType Directory | Out-File -append "$c$l$lf"
         }
     }

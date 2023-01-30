@@ -11,7 +11,7 @@
    * Controleer na uitvoeren van het script of de OU, de groep en de gebruikers correct aangemaakt zijn.
 #>
 
-[string]$locatie = "DC=FLORIST,DC=THUIS"
+[string]$locatie = "DC=FLORIST,DC=local"
 [string]$dom= "florist.thuis"
 [string]$groepsnaam = read-host "geef de naam van de groep"
 [int]$aantal = read-host "hoeveel gebruikers wil je in de groep ${groepsnaam}aanmaken"
@@ -24,6 +24,6 @@ New-ADGroup -name ${groepsnaam} -path "OU=${groepsnaam},${locatie}" -Description
 
 for($i =1 ; $i -le ${aantal}; $i++)
 {
-    New-ADUser -name "${groepsnaam} gebruiker ${i}" -SamAccountName "${groepsnaam}_${i}" -UserPrincipalName "${groepsnaam}_$i@{sam}" -Path "OU=${groepsnaam},${locatie}"
+    New-ADUser -name "${groepsnaam} gebruiker ${i}" -SamAccountName "${groepsnaam}_${i}" -UserPrincipalName "${groepsnaam}_$i@${dom}" -Path "OU=${groepsnaam},${locatie}"
     Add-ADGroupMember -Identity "${groepsnaam}" -Members "${groepsnaam}_${i}"
 }
