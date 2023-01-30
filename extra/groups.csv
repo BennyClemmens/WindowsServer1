@@ -1,0 +1,4 @@
+Name;Path
+Administratie;DC=HOHOME,DC=local
+Intern;OU=Administratie,DC=HOHOME,DC=local
+Verkoop;DC=HOHOME,DC=local
