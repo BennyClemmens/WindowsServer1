@@ -1,0 +1,19 @@
+firstname;lastname;title;description;ou
+Keanu;Reeves;Actor;Neo;OU=Cast,OU=DomainUsers
+Laurence;Fishburne;Actor;Morpheus;OU=Cast,OU=DomainUsers
+Carrie-Anne;Moss;Actor;Trinity;OU=Cast,OU=DomainUsers
+Hugo;Weaving;Actor;Agent Smith;OU=Cast,OU=DomainUsers
+Gloria;Foster;Actor;Oracle;OU=Cast,OU=DomainUsers
+Joe;Pantoliano;Actor;Cypher;OU=Cast,OU=DomainUsers
+Lana;Wachowski;Director;;OU=Directors,OU=Crew,OU=DomainUsers
+Lilly;Wachowski;Director;;OU=Directors,OU=Crew,OU=DomainUsers
+Bruce;Berman;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Dan;Cracchiolo;co-producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Carol;Hughes;associate producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Andrew;Mason;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Richard;Mirisch;associate producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Barrie;Osborne;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Joel;Silver;producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Erwin;Stoff;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Larry;Wachowski;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
+Andy;Wachowski;executive producer;;OU=Producers,OU=Crew,OU=DomainUsers
